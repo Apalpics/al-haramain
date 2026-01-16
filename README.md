@@ -1,197 +1,209 @@
-Al Haramain Perfumes & Thawbs – E-Commerce Web Application
-INFO 3305 — Web Application Development
-Group Project (Laravel MVC Web Application)
+Al Haramain Perfumes & Thawbs
+E-Commerce Web Application (Laravel MVC)
+👥 Group Members
+Name	Matric No
+Abdulghafar Abdullahi	2311279
+Newal Ysehak Abduljelil	2315376
+ADIL EMADELDIN ABDELKARIM	2320799
+Abubakar Abdulsalam Nataala	2328587
+Siham Jemal Hassen	2320670
+Marwa Mustafa Ali	2110126
+📝 1.0 Executive Summary
 
-Group Members
-No
-Name
-Matric No
-Role
-1
-Abdulghafar Abdullahi
-2311279
-Group Leader / Backend Developer
-2
-Newal Ysehak Abduljelil
-2315376
-Frontend Designer
-3
-Adil Emadeldin Abdelkarim
-2320799
-Full-Stack Developer
-4
-Abubakar Abdulsalam Nataala
-2328587
-Database & QA
-5
-Siham Jemal Hassen
-2320670
-UI/UX Designer
-6
-Marwa Mustafa Ali
-2110126
-Documentation & Presentation
+Al Haramain Perfumes & Thawbs is a student-run business at IIUM specializing in alcohol-free perfumes and traditional thawbs.
+Operations were previously managed manually through WhatsApp messages, cash payments, and physical meetups.
 
+This project transforms the business into a fully functional e-commerce platform built with Laravel MVC, enabling:
 
-1.0 Executive Summary
-Al Haramain Perfumes & Thawbs is a student-led business selling alcohol-free perfumes and traditional thawbs inside IIUM. The current business operations rely heavily on WhatsApp communication and manual sales processing, causing slow service, no inventory tracking, and no professional online presence.
-This project transforms the business into a fully functional Laravel MVC e-commerce system with:
 Online product browsing
-Add to cart & checkout
-Order management
-Admin dashboard
-Role-based authentication
-Mobile-responsive UI
-The system provides a modern, scalable, and Shariah-compliant online shopping experience.
 
-2.0 Problem Statement
-The business faces the following issues:
-❌ Limited customer reach
-Only campus customers know about the brand.
-❌ Manual inventory
-Stock is tracked manually by seller.
+Add-to-cart functionality
+
+Full checkout flow
+
+Order history tracking
+
+Admin dashboard (CRUD)
+
+Mobile-responsive design
+
+The system offers a modern, scalable, and Shariah-compliant shopping experience.
+
+❗ 2.0 Problem Statement
+
+The business faced several limitations:
+
+❌ Limited reach (only on-campus buyers)
+
+❌ Manual inventory tracking
+
 ❌ No online checkout
-Website cannot process orders.
-❌ Slow order confirmation
-Seller must message each customer individually.
-❌ No analytics
-No visibility of sales trends or customer behaviour.
-❌ Inconsistent branding
-No unified professional look.
-This project solves all these problems using Laravel MVC.
 
-3.0 Proposed Web Application Solution
-3.1 Laravel MVC Architecture
+❌ Slow order processing
+
+❌ No analytics or performance tracking
+
+❌ High risk of human errors
+
+This system solves all of the above by digitizing the business.
+
+💡 3.0 Proposed Web Application Solution
+3.1 MVC Architecture
+
 Models: User, Product, Order, OrderItem
-Views: Blade Templates (Shop, Admin, Cart, Checkout)
-Controllers: ProductController, CartController, OrderController, DashboardController
 
-3.2 Authentication & Authorization
-Implemented using Laravel Breeze
-Role system → Admin & Customer
-Logged-in customers → manage orders
-Admin → full control panel
+Views: Blade Templates
 
-3.3 Product Management (Admin CRUD)
-Admin can:
-✔ Add products
+Controllers:
+ProductController, CartController, CheckoutController, OrderController
+
+3.2 Authentication & Roles
+
+Laravel Breeze authentication
+
+Role separation: Admin vs Customer
+
+Secure login, registration & session handling
+
+3.3 Admin Product Management (CRUD)
+
+Admins can:
+
+✔ Add new products
+
 ✔ Edit products
+
 ✔ Delete products
+
 ✔ Upload images
-✔ Set price & category
+
+✔ Set prices, categories, stock
 
 3.4 Shopping Cart & Checkout
-Customer can:
-✔ Add to cart
-✔ Update quantity
-✔ Remove items
-✔ Place order
-✔ View order success
+
+Customers can:
+
+Add items to cart
+
+Update quantity
+
+Remove items
+
+Place orders
 
 3.5 Admin Dashboard
-Admin dashboard includes:
-Total users
+
+Includes:
+
 Total sales
-Pending orders
+
 Recent orders
+
+Pending orders
+
 Product count
-Order status update
 
 3.6 Responsive Design
+
+Built with:
+
 TailwindCSS
-Fully responsive on mobile
-Styled to match brand (gold, black, brown tones)
 
-4.0 Target Users and Stakeholders
+Blade
+
+Mobile-first layout
+
+🎯 4.0 Target Users & Stakeholders
 4.1 Customers
-Browse products
-Add to cart
-Checkout
-View order history
+
+Browse, shop, checkout, and track orders.
+
 4.2 Administrators
-Manage products
-Manage orders
-Update product details
-Change order status
+
+Manage all products, orders, and users.
+
 4.3 Business Owner
-Expand reach
-Reduce manual workload
-Professional online presence
 
-5.0 Project Goals and Objectives
-🎯 Main Goal
-Build a complete Laravel e-commerce system for Al Haramain.
-📝 Objectives
-Fully implement MVC structure
-Provide safe and simple checkout
-Build admin dashboard
-Provide consistent UI/UX
-Store code in GitHub
-Prepare documentation
+Monitor sales performance and track growth.
 
-6.0 Technical Specifications
+🎯 5.0 Project Goals
+
+Build complete Laravel e-commerce system
+
+Implement secure user authentication
+
+Provide a functional admin dashboard
+
+Create responsive UI/UX
+
+Upload project to GitHub for evaluation
+
+🛠 6.0 Technical Specifications
 6.1 Entity Relationship Diagram (ERD)
-![ERD](public/screenshots/erd.png)
-
 
 6.2 Sequence Diagram
-![Sequence Diagram](public/screenshots/sequence.png)
-
 
 6.3 System Architecture
-Component
-Technology
-Frontend
-Blade, TailwindCSS
-Backend
-Laravel 10, PHP 8.2
-Database
-SQLite / MySQL
-Authentication
-Laravel Breeze
-Version Control
-GitHub
-Hosting
-Localhost for demo
 
+Frontend: Blade + TailwindCSS
 
-7.0 Mock-up Designs
-Add all Figma mockups here:
-![Mockup 1](public/screenshots/mockup1.png)
-![Mockup 2](public/screenshots/mockup2.png)
-![Mockup 3](public/screenshots/mockup3.png)
+Backend: Laravel 10 (PHP 8.2)
 
+Database: SQLite / MySQL
 
-8.0 Challenges & Difficulties
+Authentication: Laravel Breeze
+
+Hosting: Localhost (development mode)
+
+🖼 7.0 UI Mockups
+Mockup 1
+
+Mockup 2
+
+Mockup 3
+
+🖥 8.0 System Screenshots
+Home Page
+
+Shop Page
+
+Product Details Page
+
+Cart Page
+
+Checkout Page
+
+Order Success Page
+
+🛠 Admin Panel
+Admin Dashboard
+
+Admin Orders
+
+Admin Products
+
+⚠️ 9.0 Challenges & Difficulties
+
 Route naming conflicts
-Model relationships troubleshooting
-Blade layout inheritance errors
-Checkout logic and session handling
-Admin vs customer role separation
+
+Middleware access restrictions
+
+CRUD validation errors
+
+Checkout calculation logic
+
+Database migration issues
+
 UI consistency
-GitHub merge issues
 
-9.0 References
+Managing storage & public assets
+
+📚 10.0 References
+
 Laravel Documentation — https://laravel.com/docs
-TailwindCSS — https://tailwindcss.com/docs
-PHP Manual — https://php.net
-IIUM INFO 2302 site
-Figma Prototype provided by business owner
 
-10.0 Presentation Video Link
+TailwindCSS Documentation — https://tailwindcss.com/docs
 
+PHP Official Docs — https://php.net
 
-11.0 System Screenshots
-Place all real screenshots taken from your running system in /public/screenshots.
-Then reference them:
-![Home Page](public/screenshots/home.png)
-![Shop Page](public/screenshots/shop.png)
-![Product Page](public/screenshots/product.png)
-![Cart](public/screenshots/cart.png)
-![Checkout](public/screenshots/checkout.png)
-![Order Success](public/screenshots/success.png)
-![Admin Dashboard](public/screenshots/admin-dashboard.png)
-![Admin Products](public/screenshots/admin-products.png)
-![Admin Orders](public/screenshots/admin-orders.png)
-
-
+MySQL Reference — https://dev.mysql.com/doc
