@@ -1,6 +1,6 @@
-Al Haramain Perfumes & Thawbs
+ Al Haramain Perfumes & Thawbs
 E-Commerce Web Application (Laravel MVC)
-👥 Group Members
+ Group Members
 Name	Matric No
 Abdulghafar Abdullahi	2311279
 Newal Ysehak Abduljelil	2315376
@@ -8,82 +8,77 @@ ADIL EMADELDIN ABDELKARIM	2320799
 Abubakar Abdulsalam Nataala	2328587
 Siham Jemal Hassen	2320670
 Marwa Mustafa Ali	2110126
-📝 1.0 Executive Summary
+1.0 Executive Summary
 
-Al Haramain Perfumes & Thawbs is a student-run business at IIUM specializing in alcohol-free perfumes and traditional thawbs.
-Operations were previously managed manually through WhatsApp messages, cash payments, and physical meetups.
+Al Haramain Perfumes & Thawbs is a student-run business inside IIUM selling alcohol-free perfumes and traditional thawbs.
+Their operations depend heavily on WhatsApp messaging, manual inventory tracking, and physical meetups.
 
-This project transforms the business into a fully functional e-commerce platform built with Laravel MVC, enabling:
+This project converts the business into a fully functional Laravel MVC e-commerce platform with:
 
 Online product browsing
 
-Add-to-cart functionality
+Add to cart
 
-Full checkout flow
+Checkout
 
-Order history tracking
+Order tracking
 
-Admin dashboard (CRUD)
+Admin dashboard
 
-Mobile-responsive design
+Mobile-responsive UI
 
-The system offers a modern, scalable, and Shariah-compliant shopping experience.
+The system provides a modern, scalable, Shariah-compliant online shopping experience.
 
-❗ 2.0 Problem Statement
+2.0 Problem Statement
 
-The business faced several limitations:
+The business faces several limitations:
 
-❌ Limited reach (only on-campus buyers)
+Limited reach — only campus customers know about the brand
 
-❌ Manual inventory tracking
+Manual inventory — risk of mistakes
 
-❌ No online checkout
+No online checkout
 
-❌ Slow order processing
+Slow order processing
 
-❌ No analytics or performance tracking
+No analytics
 
-❌ High risk of human errors
+No visibility of product performance
 
-This system solves all of the above by digitizing the business.
-
-💡 3.0 Proposed Web Application Solution
+3.0 Proposed Web Application Solution
 3.1 MVC Architecture
 
 Models: User, Product, Order, OrderItem
-
-Views: Blade Templates
-
-Controllers:
-ProductController, CartController, CheckoutController, OrderController
+Views: Blade templates
+Controllers: ProductController, CartController, CheckoutController, OrderController
 
 3.2 Authentication & Roles
 
-Laravel Breeze authentication
+Laravel Breeze login system
 
-Role separation: Admin vs Customer
+Admin and Customer roles
 
-Secure login, registration & session handling
+Secure session handling
 
-3.3 Admin Product Management (CRUD)
+3.3 Product Management (Admin CRUD)
 
 Admins can:
 
-✔ Add new products
+Add products
 
-✔ Edit products
+Edit products
 
-✔ Delete products
+Delete products
 
-✔ Upload images
+Upload images
 
-✔ Set prices, categories, stock
+Set categories and prices
 
 3.4 Shopping Cart & Checkout
 
 Customers can:
 
-Add items to cart
+Add to cart
 
 Update quantity
 
@@ -97,113 +92,88 @@ Includes:
 
 Total sales
 
-Recent orders
-
 Pending orders
+
+Recent orders
 
 Product count
 
 3.6 Responsive Design
 
-Built with:
+Built using TailwindCSS and Blade templates.
 
-TailwindCSS
-
-Blade
-
-Mobile-first layout
-
-🎯 4.0 Target Users & Stakeholders
+4.0 Target Users & Stakeholders
 4.1 Customers
 
-Browse, shop, checkout, and track orders.
+Browse products, add to cart, checkout, and view order history.
 
 4.2 Administrators
 
-Manage all products, orders, and users.
+Manage products, orders, and user data.
 
 4.3 Business Owner
 
-Monitor sales performance and track growth.
+Expand reach and monitor sales performance.
 
-🎯 5.0 Project Goals
+5.0 Project Goals
 
-Build complete Laravel e-commerce system
+Build a complete Laravel e-commerce system
 
-Implement secure user authentication
+Implement secure authentication
 
-Provide a functional admin dashboard
+Provide Admin dashboard
 
-Create responsive UI/UX
+Enhance UI/UX
 
-Upload project to GitHub for evaluation
+Upload all work to GitHub for grading
 
-🛠 6.0 Technical Specifications
+6.0 Technical Specifications
 6.1 Entity Relationship Diagram (ERD)
 
 6.2 Sequence Diagram
 
-6.3 System Architecture
+6.3 Architecture
 
-Frontend: Blade + TailwindCSS
+Frontend: Blade, Tailwind
 
-Backend: Laravel 10 (PHP 8.2)
+Backend: Laravel 10, PHP 8.2
 
-Database: SQLite / MySQL
+Database: SQLite/MySQL
 
-Authentication: Laravel Breeze
+Auth: Laravel Breeze
 
-Hosting: Localhost (development mode)
+Hosting (local)
 
-🖼 7.0 UI Mockups
-Mockup 1
+7.0 Mock-ups & UI Screens
 
-Mockup 2
+Add all screenshots like this:
 
-Mockup 3
+![Home](public/screenshots/home.png)
+![Shop](public/screenshots/shop.png)
+![Cart](public/screenshots/cart.png)
+![Checkout](public/screenshots/checkout.png)
+![Admin Dashboard](public/screenshots/admin-dashboard.png)
 
-🖥 8.0 System Screenshots
-Home Page
+8.0 Challenges
 
-Shop Page
+Route naming issues
 
-Product Details Page
+Middleware restrictions
 
-Cart Page
+CRUD bugs
 
-Checkout Page
+Checkout logic
 
-Order Success Page
-
-🛠 Admin Panel
-Admin Dashboard
-
-Admin Orders
-
-Admin Products
-
-⚠️ 9.0 Challenges & Difficulties
-
-Route naming conflicts
-
-Middleware access restrictions
-
-CRUD validation errors
-
-Checkout calculation logic
-
-Database migration issues
+Database migration errors
 
 UI consistency
 
-Managing storage & public assets
+9.0 References
 
-📚 10.0 References
+Laravel Docs: https://laravel.com/docs
 
-Laravel Documentation — https://laravel.com/docs
+TailwindCSS: https://tailwindcss.com/docs
 
-TailwindCSS Documentation — https://tailwindcss.com/docs
+PHP Docs: https://php.net
 
-PHP Official Docs — https://php.net
-
-MySQL Reference — https://dev.mysql.com/doc
+MySQL Docs: https://dev.mysql.com/doc
