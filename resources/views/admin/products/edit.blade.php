@@ -1,92 +1,71 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            Edit Product
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    @if($errors->any())
-                        <div class="mb-4 p-3 rounded bg-red-100 text-red-800">
-                            <ul class="list-disc pl-5">
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+    <h1 class="text-3xl font-bold text-gold mb-8">Edit Product</h1>
 
-                    <form method="POST" action="{{ route('admin.products.update', $product) }}" enctype="multipart/form-data" class="space-y-4">
-                        @csrf
-                        @method('PUT')
+    <form method="POST"
+          action="{{ route('admin.products.update', $product) }}"
+          enctype="multipart/form-data"
+          class="card p-6 space-y-6">
+        @csrf
+        @method('PUT')
 
-                        <div>
-                            <label class="block mb-1">Name</label>
-                            <input name="name" value="{{ old('name', $product->name) }}" class="w-full rounded border-gray-300" required>
-                        </div>
-
-                        <div>
-                            <label class="block mb-1">Category</label>
-                            <select name="category" class="w-full rounded border-gray-300" required>
-                                <option value="perfume" @selected(old('category', $product->category)==='perfume')>Perfume</option>
-                                <option value="thawb" @selected(old('category', $product->category)==='thawb')>Thawb</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block mb-1">Description</label>
-                            <textarea name="description" class="w-full rounded border-gray-300" rows="4">{{ old('description', $product->description) }}</textarea>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block mb-1">Price (RM)</label>
-                                <input type="number" step="0.01" name="price" value="{{ old('price', $product->price) }}" class="w-full rounded border-gray-300" required>
-                            </div>
-                            <div>
-                                <label class="block mb-1">Stock</label>
-                                <input type="number" name="stock" value="{{ old('stock', $product->stock) }}" class="w-full rounded border-gray-300" required>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block mb-1">Replace Image (optional)</label>
-                            <input type="file" name="image" class="w-full">
-                            @if($product->image)
-                                <p class="mt-2 text-sm opacity-80">Current image: {{ $product->image }}</p>
-                            @endif
-                        </div>
-
-                        <div class="grid grid-cols-3 gap-4">
-                            <div>
-                                <label class="block mb-1">Size (thawb)</label>
-                                <input name="size" value="{{ old('size', $product->size) }}" class="w-full rounded border-gray-300">
-                            </div>
-                            <div>
-                                <label class="block mb-1">Color (thawb)</label>
-                                <input name="color" value="{{ old('color', $product->color) }}" class="w-full rounded border-gray-300">
-                            </div>
-                            <div>
-                                <label class="block mb-1">Notes (perfume)</label>
-                                <input name="notes" value="{{ old('notes', $product->notes) }}" class="w-full rounded border-gray-300">
-                            </div>
-                        </div>
-
-                        <div class="flex gap-3">
-                            <button class="px-4 py-2 rounded bg-gray-900 text-white hover:bg-gray-700" type="submit">
-                                Update
-                            </button>
-                            <a class="px-4 py-2 rounded border" href="{{ route('admin.products.index') }}">
-                                Cancel
-                            </a>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
+        <div>
+            <label>Name</label>
+            <input name="name" value="{{ $product->name }}" class="input" required>
         </div>
-    </div>
+
+        <div>
+            <label>Category</label>
+            <select name="category" class="input">
+                <option value="perfume" {{ $product->category === 'perfume' ? 'selected' : '' }}>Perfume</option>
+                <option value="thawb" {{ $product->category === 'thawb' ? 'selected' : '' }}>Thawb</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Description</label>
+            <textarea name="description" class="input h-24">{{ $product->description }}</textarea>
+        </div>
+
+        <div>
+            <label>Price (RM)</label>
+            <input name="price" type="number" step="0.01" class="input"
+                   value="{{ $product->price }}" required>
+        </div>
+
+        <div>
+            <label>Stock</label>
+            <input name="stock" type="number" min="0" class="input"
+                   value="{{ $product->stock }}" required>
+        </div>
+
+        {{-- IMAGE PREVIEW --}}
+        <div>
+            <p class="mb-2">Current Image:</p>
+            <img src="{{ asset('storage/' . $product->image) }}"
+                 class="w-32 rounded mb-3">
+
+            <input type="file" name="image" class="input">
+        </div>
+
+        {{-- OPTIONAL FIELDS --}}
+        <div>
+            <label>Size (Thawb)</label>
+            <input name="size" class="input" value="{{ $product->size }}">
+        </div>
+
+        <div>
+            <label>Color (Thawb)</label>
+            <input name="color" class="input" value="{{ $product->color }}">
+        </div>
+
+        <div>
+            <label>Notes (Perfume)</label>
+            <input name="notes" class="input" value="{{ $product->notes }}">
+        </div>
+
+        <button class="btn-primary w-full">Save Changes</button>
+
+    </form>
+
 </x-app-layout>

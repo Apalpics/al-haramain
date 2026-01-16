@@ -1,54 +1,51 @@
 <x-guest-layout>
-    <div class="max-w-6xl mx-auto py-12 px-4">
-        <div class="mb-10 text-center">
-            <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
-                Al Haramain Perfumes & Thawbs
-            </h1>
-            <p class="mt-2 text-gray-600 dark:text-gray-300">
-                Elegance in every thread, captivation in every scent.
+
+    {{-- HERO SECTION --}}
+    <section class="relative w-full h-[550px] overflow-hidden">
+        <img src="{{ asset('storage/hero_home.jpg') }}"
+             class="absolute inset-0 w-full h-full object-cover brightness-75" />
+
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <h1 class="text-5xl font-bold text-white drop-shadow-xl">Luxury Perfumes & Thawbs</h1>
+            <p class="text-gray-200 mt-3 text-lg drop-shadow-lg">
+                Crafted for elegance. Inspired by heritage.
             </p>
-
-            <div class="mt-6 flex justify-center gap-3">
-                <a href="{{ route('shop.index', ['category' => 'perfume']) }}"
-                   class="px-4 py-2 rounded bg-gray-900 text-white hover:bg-gray-700">
-                    Browse Perfumes
-                </a>
-                <a href="{{ route('shop.index', ['category' => 'thawb']) }}"
-                   class="px-4 py-2 rounded border border-gray-400 text-gray-900 dark:text-gray-100">
-                    Browse Thawbs
-                </a>
-            </div>
+            <a href="{{ route('shop.index') }}"
+               class="mt-6 px-6 py-3 bg-gold text-black rounded-lg font-semibold hover:bg-yellow-500 transition">
+                Shop Now
+            </a>
         </div>
+    </section>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-                <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Latest Perfumes</h2>
-                <div class="grid grid-cols-2 gap-4">
-                    @forelse($latestPerfumes as $p)
-                        <a href="{{ route('shop.show', $p) }}" class="block border rounded p-3 hover:opacity-90">
-                            <div class="font-semibold">{{ $p->name }}</div>
-                            <div class="text-sm opacity-80">RM {{ number_format($p->price, 2) }}</div>
-                        </a>
-                    @empty
-                        <p class="opacity-80">No perfumes yet.</p>
-                    @endforelse
-                </div>
-            </div>
+    {{-- CATEGORY SECTION --}}
+    <section class="max-w-6xl mx-auto px-6 py-16">
+        <h2 class="text-3xl text-center mb-12 text-gold">Shop By Category</h2>
 
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-                <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Latest Thawbs</h2>
-                <div class="grid grid-cols-2 gap-4">
-                    @forelse($latestThawbs as $t)
-                        <a href="{{ route('shop.show', $t) }}" class="block border rounded p-3 hover:opacity-90">
-                            <div class="font-semibold">{{ $t->name }}</div>
-                            <div class="text-sm opacity-80">RM {{ number_format($t->price, 2) }}</div>
-                        </a>
-                    @empty
-                        <p class="opacity-80">No thawbs yet.</p>
-                    @endforelse
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            {{-- PERFUMES --}}
+            <a href="{{ route('shop.index', ['category' => 'perfume']) }}">
+                <div class="relative rounded-xl overflow-hidden shadow-lg group">
+                    <img src="{{ asset('storage/perfume_category.jpg') }}"
+                         class="w-full h-64 object-cover group-hover:scale-110 transition" />
+                    <div class="absolute inset-0 flex justify-center items-center bg-black/40">
+                        <h3 class="text-white text-3xl font-bold">Perfumes</h3>
+                    </div>
                 </div>
-            </div>
+            </a>
+
+            {{-- THAWBS --}}
+            <a href="{{ route('shop.index', ['category' => 'thawb']) }}">
+                <div class="relative rounded-xl overflow-hidden shadow-lg group">
+                    <img src="{{ asset('storage/thawb_category.jpg') }}"
+                         class="w-full h-64 object-cover group-hover:scale-110 transition" />
+                    <div class="absolute inset-0 flex justify-center items-center bg-black/40">
+                        <h3 class="text-white text-3xl font-bold">Thawbs</h3>
+                    </div>
+                </div>
+            </a>
+
         </div>
-    </div>
+    </section>
+
 </x-guest-layout>
-

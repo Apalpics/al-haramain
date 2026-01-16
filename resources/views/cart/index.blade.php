@@ -1,63 +1,50 @@
 <x-guest-layout>
-    <div class="max-w-4xl mx-auto py-12 px-4">
-        <h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-            Cart
-        </h1>
 
-        @if(session('success'))
-            <div class="mb-4 p-3 rounded bg-green-100 text-green-900">
-                {{ session('success') }}
-            </div>
-        @endif
+    <div class="max-w-5xl mx-auto px-6 py-12">
 
-        @if(empty($cart))
-            <p class="opacity-80">Your cart is empty.</p>
-            <a class="underline mt-4 inline-block" href="{{ route('shop.index') }}">Go shopping</a>
+        <h1 class="section-title">Your Cart</h1>
+
+        @if(!$cart)
+            <p class="text-gray-400">Your cart is empty.</p>
+            <a href="{{ route('shop.index') }}" class="btn-primary mt-6 inline-block">
+                Continue Shopping
+            </a>
+
         @else
-            <div class="space-y-4">
-                @foreach($cart as $id => $item)
-                    <div class="flex items-center justify-between bg-white dark:bg-gray-800 p-4 rounded shadow">
-                        <div class="flex items-center gap-4">
-                            @if(!empty($item['image']))
-                                <img class="w-16 h-16 object-cover rounded"
-                                     src="{{ asset('storage/' . $item['image']) }}"
-                                     alt="{{ $item['name'] }}">
-                            @else
-                                <div class="w-16 h-16 rounded bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs">
-                                    No Image
-                                </div>
-                            @endif
 
-                            <div>
-                                <p class="font-semibold text-gray-900 dark:text-gray-100">{{ $item['name'] }}</p>
-                                <p class="text-sm opacity-80">RM {{ number_format($item['price'], 2) }}</p>
-                            </div>
-                        </div>
+            @foreach($cart as $id => $item)
+                <div class="cart-item">
 
-                        <div class="flex items-center gap-4">
-                            <form method="POST" action="{{ route('cart.update', $id) }}" class="flex items-center gap-2">
-                                @csrf
-                                <input type="number" name="quantity" value="{{ $item['quantity'] }}"
-                                       min="1" class="w-20 rounded border-gray-300">
-                                <button class="underline">Update</button>
-                            </form>
+                    <img src="{{ asset('storage/' . $item['image']) }}" class="cart-img">
 
-                            <form method="POST" action="{{ route('cart.remove', $id) }}">
-                                @csrf
-                                <button class="text-red-500 underline">Remove</button>
-                            </form>
-                        </div>
+                    <div class="cart-details">
+                        <p class="text-lg font-semibold">{{ $item['name'] }}</p>
+                        <p class="gold font-bold">
+                            RM {{ number_format($item['price'], 2) }}
+                        </p>
+
+                        <form action="{{ route('cart.update', $id) }}" method="POST" class="qty-box">
+                            @csrf
+                            <input type="number" name="quantity" min="1" value="{{ $item['quantity'] }}" class="qty-input">
+                            <button class="btn-small">Update</button>
+                        </form>
+
+                        <form action="{{ route('cart.remove', $id) }}" method="POST">
+                            @csrf
+                            <button class="remove-link">Remove</button>
+                        </form>
                     </div>
-                @endforeach
+
+                </div>
+            @endforeach
+
+            <div class="cart-total-box">
+                <p class="text-xl">Total: <span class="gold">RM {{ number_format($total, 2) }}</span></p>
+                <a href="{{ route('checkout.show') }}" class="btn-primary w-full mt-4">Checkout</a>
             </div>
 
-            <div class="mt-6 text-xl font-semibold text-gray-900 dark:text-gray-100">
-                Total: RM {{ number_format($total, 2) }}
-            </div>
-
-            <div class="mt-4">
-                <a href="{{ route('shop.index') }}" class="underline">Continue shopping</a>
-            </div>
         @endif
+
     </div>
+
 </x-guest-layout>

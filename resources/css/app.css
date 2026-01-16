@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom colors */
+:root {
+    --gold: #e6b800;
+}
+
+.bg-gold {
+    background-color: var(--gold);
+}
+
+.text-gold {
+    color: var(--gold);
+}
+
+/* Reusable input style */
+.input {
+    @apply w-full px-3 py-2 bg-gray-800 text-gray-200 rounded border border-gray-700 focus:outline-none;
+}
+
+/* Reusable button */
+.btn-primary {
+    @apply px-6 py-3 bg-gold text-black font-semibold rounded-lg shadow hover:bg-yellow-500 transition;
+}

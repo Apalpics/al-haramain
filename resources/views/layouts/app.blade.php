@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $title ?? 'Admin' }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<body class="bg-gray-900 text-gray-100">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    {{-- ADMIN NAV --}}
+    <nav class="bg-[#111] border-b border-soft">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+            <a href="{{ route('admin.dashboard') }}" class="text-xl gold font-bold">Admin Panel</a>
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+            <div class="flex items-center gap-6">
+                <a href="{{ route('admin.products.index') }}" class="nav-link">Products</a>
+                <a href="{{ route('admin.orders.index') }}" class="nav-link">Orders</a>
+                <a href="{{ route('home') }}" class="nav-link">Store</a>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="nav-link">Logout</button>
+                </form>
+            </div>
+
         </div>
-    </body>
+    </nav>
+
+    <main class="max-w-6xl mx-auto py-10 px-6">
+        {{ $slot }}
+    </main>
+
+</body>
 </html>
